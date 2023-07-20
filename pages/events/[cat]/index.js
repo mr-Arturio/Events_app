@@ -1,4 +1,4 @@
-export default function Page (){
+export default function EventsCatPage (){
   return  (
     <div>
   <h1>Events page</h1>
