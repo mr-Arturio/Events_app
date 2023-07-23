@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { HomePage } from '../src/components/home/home-page';
 
 export default function Home({ data }) {
   return (
@@ -34,15 +35,7 @@ export default function Home({ data }) {
         </nav>
       </header>
 
-      <main>
-        {data.map((ev) => (
-          <Link key={ev.id} href={`/events/${ev.id}`} passHref>
-            <Image width={200} height={200} alt={ev.title} src={ev.image} />
-            <h2> {ev.title} </h2>
-            <p> {ev.description} </p>
-          </Link>
-        ))}
-      </main>
+     <HomePage data={data} />
 
       <footer></footer>
     </div>
