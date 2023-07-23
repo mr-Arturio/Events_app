@@ -1,5 +1,7 @@
+import React from 'react';
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 export default function Home({ data }) {
@@ -12,20 +14,33 @@ export default function Home({ data }) {
 
       <header>
         <nav>
-          <img />
-          <a href="/"> Home</a>
-          <a href="/events"> Events</a>
-          <a href="/about-us"> About Us</a>
+          <ul>
+            <li>
+              <Link href="/" passHref>
+                 Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/events" passHref>
+                 Events
+              </Link>
+            </li>
+            <li>
+              <Link href="/about-us" passHref>
+                About us
+              </Link>
+            </li>
+          </ul>
         </nav>
       </header>
 
       <main>
         {data.map((ev) => (
-          <a key={ev.id} href={`/events/${ev.id}`}>
+          <Link key={ev.id} href={`/events/${ev.id}`} passHref>
             <Image width={200} height={200} alt={ev.title} src={ev.image} />
             <h2> {ev.title} </h2>
             <p> {ev.description} </p>
-          </a>
+          </Link>
         ))}
       </main>
 
@@ -36,7 +51,6 @@ export default function Home({ data }) {
 
 export async function getServerSideProps() {
   const { events_categories } = await import("/data/data.json");
-  console.log(events_categories);
 
   return {
     props: {
