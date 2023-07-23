@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
 import styles from "../styles/Home.module.css";
-import { HomePage } from '../src/components/home/home-page';
+import { HomePage } from "../src/components/home/home-page";
+import { Footer } from "../src/components/footer/footer";
+import { Header } from "../src/components/header/header";
 
 export default function Home({ data }) {
   return (
@@ -13,31 +13,11 @@ export default function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <nav>
-          <ul>
-            <li>
-              <Link href="/" passHref>
-                 Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/events" passHref>
-                 Events
-              </Link>
-            </li>
-            <li>
-              <Link href="/about-us" passHref>
-                About us
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
-     <HomePage data={data} />
+      <HomePage data={data} />
 
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
