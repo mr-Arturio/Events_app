@@ -28,7 +28,6 @@ export default function handler(req, res) {
   //if fail
   if (!allEvents) {
     return res.status(404).json({
-      status: 404,
       message: 'Events data not found',
     });
   }
