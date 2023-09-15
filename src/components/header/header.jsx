@@ -5,12 +5,14 @@ export const Header = () => (
   <header>
     <div>
       <div className="topNav">
+      <Link href="/" passHref>
         <Image
           alt="logo"
           src={"/images/images (1).jpg"}
           width={160}
           height={60}
         />
+        </Link>
         <nav>
           <ul>
             <li>
